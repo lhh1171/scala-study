@@ -1,0 +1,25 @@
+scala的泛型
+scala中的泛型称为类型参数化(type parameterlization)。语法跟java不一样，使用”[]”表示类型。
+上限和下限
+scala跟java一样，也提供了上限(upper bounds)和下限(lower bounds)功能。
+上限(upper bounds)
+java中上限的使用如下：
+
+<T extends Object>
+
+通配符形式
+<? extends Object>
+scala写法：
+
+[T <: AnyRef]
+
+通配符形式
+[_ <: AnyRef]
+协变和逆变
+协变(covariance)：对于一个带类型参数的类型，比如List[T]，如果对A及其子类型B，满足List[B]也符合List[A]的子类型，那么就称为协变，用加号表示。比如 MyType[+A]
+
+逆变(contravariance)：如果List[A]是List[B]的子类型，用减号表示。比如MyType[+B]
+
+如果一个类型支持协变或逆变，则称这个类型为可变的(variance)。否则称为不可变的(invariant)。
+
+在java里，泛型类型都是不可变的，比如List<String>并不是List<Object>的子类。
